@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../lib/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com1 v-bind:parentmsg="msg"></com1>
+    </div>
+    <template id=temp1>
+        <div>
+            <h1>这是子元素------{{parentmsg}}</h1>
+        </div>
+    </template>
+    <script>
+        var com1={
+            template:'#temp1',
+            props:['parentmsg']
+        }
+
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:'hello world!!'
+            },
+            methods:{},
+            components:{
+              com1  
+            }
+        })
+    </script>
+</body>
+</html>
